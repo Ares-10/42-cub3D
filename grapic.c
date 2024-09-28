@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   grapic.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyungcho <hyungcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 10:14:34 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/09/28 18:15:31 by hyungcho         ###   ########.fr       */
+/*   Created: 2024/09/28 18:05:51 by hyungcho          #+#    #+#             */
+/*   Updated: 2024/09/28 18:13:40 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub3d.h"
 
-int main(int argc, char **argv)
+void start_grapic(t_data *data, t_img_path *img_path)
 {
-	(void) argc;
-	(void) argv;
-	start_grapic(0, 0);
+    (void) data;
+    (void) img_path;
 }

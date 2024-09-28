@@ -1,8 +1,10 @@
 NAME = cub3d
 
-SRCS =  main.c
+SRCS =  main.c		\
+		grapic.c	\
 
-SRCS +=	get_next_line.c get_next_line_utils.c
+SRCS +=	get_next_line/get_next_line.c		\
+		get_next_line/get_next_line_utils.c	\
 
 OBJS = $(SRCS:.c=.o)
 
