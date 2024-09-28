@@ -1,4 +1,4 @@
-NAME = minishell
+NAME = cub3d
 
 SRCS =  main.c
 
@@ -16,7 +16,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	@$(MAKE) -C ./Libft bonus
 	@cc $(LDFLAGS) $^ $(LIBS) -o $(NAME)
-	@echo "Minishell"
+	@echo "cub3d"
 
 %.o: %.c
 	@echo "Compiling $<"
