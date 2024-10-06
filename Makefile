@@ -1,7 +1,7 @@
 NAME = cub3d
 
 SRCS =  main.c		\
-		grapic.c	\
+		graphic.c	\
 		error.c		\
 
 SRCS +=	get_next_line/get_next_line.c		\
