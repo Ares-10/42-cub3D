@@ -30,6 +30,10 @@ typedef struct s_img_path
 	char			*west;
 }	t_img_path;
 
-void start_grapic(t_data *data, t_img_path *img_path);
+/* grapic.c */
+void	start_grapic(t_data *data, t_img_path *img_path);
+
+/* error.c */
+void	err(char *msg);
 
 #endif //CUB3D_H
