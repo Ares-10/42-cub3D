@@ -6,24 +6,12 @@
 /*   By: hyungcho <hyungcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:21:25 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/07 21:25:15 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/07 21:34:49 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   graphic.h                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hyungcho <hyungcho@student.42seoul.kr>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 17:22:48 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/07 21:24:06 by hyungcho         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef GRAPIC_H
-# define GRAPIC_H
+#ifndef GRAPHIC_H
+# define GRAPHIC_H
 
 # define KEY_PRESS		2
 # define DESTROY_NOTIFY	17
@@ -46,19 +34,17 @@ typedef struct s_images
 
 typedef struct s_game
 {
-	t_images	images;
-	void		*mlx;
-	void		*win;
-	int			win_width;
-	int			win_height;
-	void		*img;
-	char		*addr;
-	int			bpp;
-	int			line_length;
-	int			endian;
-
+	t_images		images;
+	void			*mlx;
+	void			*win;
+	int				win_width;
+	int				win_height;
+	void			*img;
+	char			*addr;
+	int				bpp;
+	int				line_length;
+	int				endian;
 	char			**map;
-
 	unsigned int	ceiling_color;
 	unsigned int	floor_color;
 	double			player_pos[2];
@@ -67,6 +53,6 @@ typedef struct s_game
 }	t_game;
 
 /* graphic_init.c */
-t_game    init_game(t_data *data, t_img_path img_path);
+t_game	init_game(t_data *data, t_img_path img_path);
 
 #endif

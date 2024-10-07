@@ -6,7 +6,7 @@
 /*   By: hyungcho <hyungcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:22:09 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/07 21:25:53 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/07 21:44:29 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <stdio.h>
 
-void    init_img(t_game *game, t_img_path img_path)
+void	init_img(t_game *game, t_img_path img_path)
 {
 	int	img_width;
 	int	img_height;
@@ -29,19 +29,20 @@ void    init_img(t_game *game, t_img_path img_path)
 			img_path.east, &img_width, &img_height);
 	game->images.west = mlx_xpm_file_to_image(game->mlx,
 			img_path.west, &img_width, &img_height);
-	if (!(game->images.north || game->images.south || game->images.east || game->images.west))
+	if (!(game->images.north || game->images.south || game->images.east \
+		|| game->images.west))
 		err("xpm file to image failed");
 }
 
-t_game    init_game(t_data *data, t_img_path img_path)
+t_game	init_game(t_data *data, t_img_path img_path)
 {
-	t_game game;
+	t_game	game;
 
 	game.mlx = mlx_init();
 	game.win_width = 16 * 50;
 	game.win_height = 9 * 50;
 	game.win = mlx_new_window(game.mlx,
-		game.win_width, game.win_height, "so_long");
+			game.win_width, game.win_height, "so_long");
 	game.img = mlx_new_image(game.mlx, game.win_width, game.win_height);
 	game.addr = mlx_get_data_addr(game.img,
 			&game.bpp, &game.line_length, &game.endian);
@@ -52,5 +53,5 @@ t_game    init_game(t_data *data, t_img_path img_path)
 	game.ceiling_color = data->ceiling_color;
 	game.floor_color = data->floor_color;
 	init_img(&game, img_path);
-	return game;
+	return (game);
 }
