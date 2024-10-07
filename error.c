@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft/libft.h"
+#include "./include/libft.h"
 
 void	err(char *msg)
 {

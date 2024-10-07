@@ -12,6 +12,16 @@
 
 #include "get_next_line.h"
 
+size_t	gnl_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
 size_t	gnl_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
@@ -76,14 +86,4 @@ char	*gnl_strchr(const char *s, int c)
 	if (*s == '\0')
 		return (0);
 	return ((char *)s);
-}
-
-size_t	gnl_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
 }

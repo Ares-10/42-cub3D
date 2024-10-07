@@ -4,8 +4,8 @@ SRCS =  main.c		\
 		graphic.c	\
 		error.c		\
 
-SRCS +=	get_next_line/get_next_line.c		\
-		get_next_line/get_next_line_utils.c	\
+SRCS +=	lib/get_next_line/get_next_line.c		\
+		lib/get_next_line/get_next_line_utils.c	\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -13,17 +13,17 @@ INC = ./include
 
 CFLAGS = -Wall -Wextra -Werror
 
-LDFLAGS = -L./minilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
+LDFLAGS = -L./lib/minilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
 
-LIBS =	libft/libft.a						\
-		minilibx_opengl_20191021/libmlx.a	\
+LIBS =	./lib/libft/libft.a						\
+		./lib/minilibx_opengl_20191021/libmlx.a	\
 
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@$(MAKE) -C ./libft bonus
-	@$(MAKE) -C ./minilibx_opengl_20191021 all
+	@$(MAKE) -C ./lib/libft bonus
+	@$(MAKE) -C ./lib/minilibx_opengl_20191021 all
 	@cc $(LDFLAGS) $^ $(LIBS) -o $(NAME)
 	@echo "Cub3d"
 
@@ -33,8 +33,8 @@ $(NAME) : $(OBJS)
 	@tput cuu1; tput el
 
 clean :
-	@$(MAKE) -C ./libft fclean
-	@$(MAKE) -C ./minilibx_opengl_20191021 clean
+	@$(MAKE) -C ./lib/libft fclean
+	@$(MAKE) -C ./lib/minilibx_opengl_20191021 clean
 	@rm -rf $(OBJS)
 	@echo "Cleaning Complete!"
 

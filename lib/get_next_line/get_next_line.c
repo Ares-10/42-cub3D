@@ -13,6 +13,12 @@
 #include <unistd.h>
 #include "get_next_line.h"
 
+char	*gnl_substr(char const *s, unsigned int start, size_t len);
+size_t	gnl_strlcpy(char *dst, const char *src, size_t dstsize);
+char	*gnl_strjoin(char const *s1, char const *s2);
+char	*gnl_strchr(const char *s, int c);
+size_t	gnl_strlen(const char *s);
+
 static char	*gnl_free(char **str)
 {
 	free(*str);
