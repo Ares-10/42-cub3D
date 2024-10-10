@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:10:16 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/09 16:16:23 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/10 19:30:25 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,12 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
-# include "libft.h"
+# include <libft.h>
 
-typedef struct s_img_path	t_img_path;
-
-typedef struct s_data
-{
-	char			**map;
-	unsigned int	ceiling_color;
-	unsigned int	floor_color;
-	double			player_pos[2];
-	int				player_direction;
-	t_img_path		imgpath;
-}	t_data;
+# define N 90
+# define S 270
+# define E 0
+# define W 180
 
 typedef struct s_img_path
 {
@@ -40,10 +33,16 @@ typedef struct s_img_path
 	char			*west;
 }	t_img_path;
 
-/* grapic.c */
-void	start_grapic(t_data *data, t_img_path *img_path);
+typedef struct s_data
+{
+	char			**map;
+	unsigned int	ceiling_color;
+	unsigned int	floor_color;
+	double			player_pos[2];
+	int				player_direction;
+	t_img_path		*imgpath;
+}	t_data;
 
-/* error.c */
-void	err(char *msg);
+//void	start_grapic(t_data *data, t_img_path *img_path);
 
 #endif //CUB3D_H

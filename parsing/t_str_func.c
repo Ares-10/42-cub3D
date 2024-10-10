@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 05:05:42 by sanghhan          #+#    #+#             */
-/*   Updated: 2024/10/09 05:18:17 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/10 19:48:06 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ t_str	*ft_t_str_new(char *str)
 {
 	t_str	*node;
 
-	node = (t_str *)malloc(sizeof(t_str));
-	if (!node)
-		return (0);
-	node->str = str;
+	node = (t_str *)cmk(malloc(sizeof(t_str)));
+	node->str = cmk(ft_strtrim(str, "\n"));
 	node->next = 0;
 	return (node);
 }
@@ -46,15 +44,33 @@ void	ft_t_str_add_back(t_str **head, t_str *new)
 	}
 }
 
-void	free_map_list(t_str *map_list)
+t_str	*make_map_t_str(int fd)
+{
+	t_str	*map_str;
+	char	*line;
+
+	map_str = NULL;
+	line = get_next_line(fd);
+	while (line)
+	{
+		ft_t_str_add_back(&map_str, ft_t_str_new(line));
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return (map_str);
+}
+
+void	*free_map_t_str(t_str *map_t_str)
 {
 	t_str	*tmp;
 
-	while (map_list)
+	while (map_t_str)
 	{
-		tmp = map_list;
-		map_list = map_list->next;
+		tmp = map_t_str;
+		map_t_str = map_t_str->next;
 		free(tmp->str);
 		free(tmp);
 	}
+	return (NULL);
 }
