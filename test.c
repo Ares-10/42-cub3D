@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 19:22:44 by sanghhan          #+#    #+#             */
-/*   Updated: 2024/10/10 19:59:43 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/10 20:20:27 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	print_data(t_data *data)
 	printf("map : \n");
 	while (data->map[++i])
 		printf("%s\n", data->map[i]);
-	printf("ceiling_color : %u\n", data->ceiling_color);
-	printf("floor_color : %u\n", data->floor_color);
+	printf("ceiling_color : %x\n", data->ceiling_color);
+	printf("floor_color : %x\n", data->floor_color);
 	printf("player_pos : %g, %g\n", data->player_pos[0], data->player_pos[1]);
 	printf("player_direction : %d\n", data->player_direction);
 	printf("imgpath : \n");

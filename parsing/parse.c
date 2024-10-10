@@ -6,22 +6,11 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 17:04:10 by sanghhan          #+#    #+#             */
-/*   Updated: 2024/10/10 20:00:00 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/10 21:55:23 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
-
-void	check_valid_extension(char *filename)
-{
-	char	*ext;
-
-	ext = ft_strrchr(filename, '.');
-	if (ext != NULL && strcmp(ext, ".cub") == 0)
-		return ;
-	else
-		err("Invalid file extension.");
-}
 
 unsigned int	parse_rgb(char *str)
 {
@@ -73,6 +62,7 @@ void	get_path_to_texture(int fd, t_img_path *imgpath)
 			err("Invalid map data.");
 		free(line);
 	}
+	check_valid_imgpath(imgpath);
 }
 
 void	get_color(int fd, t_data *data)

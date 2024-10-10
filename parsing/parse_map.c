@@ -6,38 +6,11 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 04:56:55 by sanghhan          #+#    #+#             */
-/*   Updated: 2024/10/10 20:04:22 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/10 21:53:19 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
-
-void	check_valid_map_components(t_str *map_str)
-{
-	int		player_count;
-	int		i;
-	t_str	*nownode;
-	char	c;
-
-	player_count = 0;
-	nownode = map_str;
-	while (nownode)
-	{
-		i = -1;
-		while (nownode->str[++i])
-		{
-			c = nownode->str[i];
-			if (c != '1' && c != '0' && c != ' ' && \
-				c != 'E' && c != 'S' && c != 'W' && c != 'N')
-				err("The map components are invalid.");
-			if (c == 'E' || c == 'S' || c == 'W' || c == 'N')
-				player_count++ ;
-		}
-		nownode = nownode->next;
-	}
-	if (player_count != 1)
-		err("The map components are invalid.");
-}
 
 int	get_map_hight(t_str *head)
 {
@@ -103,5 +76,6 @@ void	get_map(int fd, t_data *data)
 	width = get_map_width(map_str);
 	map = convert_map_to_2d_array(map_str, hight, width);
 	map_str = free_map_t_str(map_str);
+	check_map_valid(map, hight, width, data);
 	data->map = map;
 }
