@@ -6,7 +6,7 @@
 /*   By: hyungcho <hyungcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:21:25 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/12 02:01:52 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/12 02:10:43 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,9 @@
 # define P_SPEED			0.1
 # define P_ANGULAR_SPEED	3.0
 
-# include <stdlib.h>
 # include <math.h>
 # include "mlx.h"
 # include "cub3d.h"
-
-// typedef struct s_images
-// {
-// 	void	*north;
-// 	void	*south;
-// 	void	*east;
-// 	void	*west;
-// }	t_images;
 
 typedef struct s_vector
 {
