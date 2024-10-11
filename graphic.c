@@ -20,24 +20,6 @@ int	exit_game(void)
 	exit(0);
 }
 
-void	draw(t_game *game)
-{
-	int	y;
-	int	x;
-
-	y = -1;
-	while (++y < game->win_height)
-	{
-		x = -1;
-		if (y < game->win_height / 2)
-			while (++x < game->win_width)
-				mlx_pixel_put(game->mlx, game->win, x, y, game->ceiling_color);
-		else
-			while (++x < game->win_width)
-				mlx_pixel_put(game->mlx, game->win, x, y, game->floor_color);
-	}
-}
-
 int	key_press(int keycode, t_game *game)
 {
 	if (keycode == ESC)

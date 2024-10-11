@@ -4,6 +4,7 @@ SRCS =  main.c			\
 		graphic.c		\
 		error.c			\
 		graphic_init.c	\
+		graphic_draw.c	\
 
 SRCS +=	lib/get_next_line/get_next_line.c		\
 		lib/get_next_line/get_next_line_utils.c	\
