@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:10:16 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/10 19:30:25 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:02:39 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ typedef struct s_data
 	t_img_path		*imgpath;
 }	t_data;
 
-//void	start_grapic(t_data *data, t_img_path *img_path);
+/* grapic.c */
+void	start_grapic(t_data *data, t_img_path *img_path);
+
+/* error.c */
+void	err(char *msg);
 
 #endif //CUB3D_H
