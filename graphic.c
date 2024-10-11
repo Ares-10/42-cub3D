@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 19:29:45 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/11 18:08:08 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/12 01:56:54 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,21 @@ int	key_press(int keycode, t_game *game)
 		exit_game();
 	if (keycode == KEY_W)
 	{
-		game->player.pos.x += game->player.dir.x * game->player.speed;
-		game->player.pos.y += game->player.dir.y * game->player.speed;
+		game->player.pos.x += game->player.dir.x * P_SPEED;
+		game->player.pos.y += game->player.dir.y * P_SPEED;
 	}
 	if (keycode == KEY_S)
 	{
-		game->player.pos.x -= game->player.dir.x * game->player.speed;
-		game->player.pos.y -= game->player.dir.y * game->player.speed;
+		game->player.pos.x -= game->player.dir.x * P_SPEED;
+		game->player.pos.y -= game->player.dir.y * P_SPEED;
+	}
+	if (keycode == KEY_A)
+	{
+		game->player.degree += P_ANGULAR_SPEED;
+	}
+	if (keycode == KEY_D)
+	{
+		game->player.degree -= P_ANGULAR_SPEED;
 	}
 	draw(game);
 	return (0);

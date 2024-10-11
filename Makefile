@@ -5,6 +5,7 @@ SRCS =  main.c			\
 		utils.c			\
 		graphic_init.c	\
 		graphic_draw.c	\
+		graphic_utils.c	\
 
 SRCS += parsing/check_map_valid.c	\
 		parsing/check_valid.c		\

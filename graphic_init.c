@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:22:09 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/11 18:04:43 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/12 01:57:03 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void	init_player(t_game *game, t_data *data)
 	game->player.plane.y = 0.66;
 	game->player.pos.x = data->player_pos[0] + 0.5;
 	game->player.pos.y = data->player_pos[1] + 0.5;
-	game->player.angular_speed = 3.0;
-	game->player.speed = 0.1;
 }
 
 t_game	init_game(t_data *data, t_img_path img_path)
