@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:22:35 by sanghhan          #+#    #+#             */
-/*   Updated: 2024/10/10 22:55:55 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/11 16:47:32 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ typedef struct s_str
 }			t_str;
 
 //utils
-int				err(char *errmsg);
-void			*cmk(void *mk);
 void			*free_2d_char_array(char **array);
 void			validate_rgb_value(char *color);
 

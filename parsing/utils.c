@@ -6,25 +6,11 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 17:07:23 by sanghhan          #+#    #+#             */
-/*   Updated: 2024/10/10 19:40:34 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/11 16:49:03 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-
-int	err(char *errmsg)
-{
-	printf("Error!\n");
-	printf("%s\n", errmsg);
-	exit(1);
-}
-
-void	*cmk(void *mk)
-{
-	if (!mk)
-		err("Failed to allocate memory.");
-	return (mk);
-}
+#include "parse.h"
 
 void	*free_2d_char_array(char **array)
 {

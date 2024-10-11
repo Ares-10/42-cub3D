@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   graphic_draw.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyungcho <hyungcho@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:59:38 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/11 14:52:04 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:02:05 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 #include "graphic.h"
 
-static void draw_background(t_game *game)
+static void	draw_background(t_game *game)
 {
 	int	y;
 	int	x;
