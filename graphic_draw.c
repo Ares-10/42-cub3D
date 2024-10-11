@@ -6,11 +6,20 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:59:38 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/11 18:05:54 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/12 01:46:31 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "graphic.h"
+
+void	my_mlx_pixel_put(t_game *game, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = game->addr + (y * game->line_length + x * (game->bpp / 8));
+	*(unsigned int*)dst = color;
+}
+
 
 static void	draw_background(t_game *game)
 {
@@ -23,10 +32,10 @@ static void	draw_background(t_game *game)
 		x = -1;
 		if (y < game->win_height / 2)
 			while (++x < game->win_width)
-				mlx_pixel_put(game->mlx, game->win, x, y, game->ceiling_color);
+				my_mlx_pixel_put(game, x, y, game->ceiling_color);
 		else
 			while (++x < game->win_width)
-				mlx_pixel_put(game->mlx, game->win, x, y, game->floor_color);
+				my_mlx_pixel_put(game, x, y, game->floor_color);
 	}
 }
 
@@ -115,13 +124,15 @@ static void	draw_wall(t_game *game)
 		camera_x = 2 * i / (double) 320 - 1;
 		raydir = get_raydir(game->player, camera_x);
 		wall_height = get_wall_high(game, raydir);
+
+
 		j = - wall_height / 2 + game->win_height / 2;
 		while (++j < wall_height / 2 + game->win_height / 2)
 		{
-			mlx_pixel_put(game->mlx, game->win, i * 4, j, 1000);
-			mlx_pixel_put(game->mlx, game->win, i * 4 + 1, j, 1000);
-			mlx_pixel_put(game->mlx, game->win, i * 4 + 2, j, 1000);
-			mlx_pixel_put(game->mlx, game->win, i * 4 + 3, j, 1000);
+			my_mlx_pixel_put(game, i * 4, j, 1000);
+			my_mlx_pixel_put(game, i * 4 + 1, j, 1000);
+			my_mlx_pixel_put(game, i * 4 + 2, j, 1000);
+			my_mlx_pixel_put(game, i * 4 + 3, j, 1000);
 		}
 	}
 }
@@ -130,4 +141,5 @@ void	draw(t_game *game)
 {
 	draw_background(game);
 	draw_wall(game);
+	mlx_put_image_to_window(game->mlx, game->win, game->img, 0, 0);
 }
