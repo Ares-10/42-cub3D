@@ -12,15 +12,6 @@
 
 #include "graphic.h"
 
-void	my_mlx_pixel_put(t_game *game, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = game->addr + (y * game->line_length + x * (game->bpp / 8));
-	*(unsigned int*)dst = color;
-}
-
-
 static void	draw_background(t_game *game)
 {
 	int	y;

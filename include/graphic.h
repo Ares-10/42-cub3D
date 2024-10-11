@@ -6,14 +6,12 @@
 /*   By: hyungcho <hyungcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:21:25 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/09 19:15:07 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/12 02:10:43 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GRAPHIC_H
 # define GRAPHIC_H
-
-// # define PI				3.1415926
 
 # define KEY_PRESS		2
 # define DESTROY_NOTIFY	17
@@ -23,18 +21,12 @@
 # define KEY_S			1
 # define KEY_D			2
 
-# include <stdlib.h>
+# define P_SPEED			0.1
+# define P_ANGULAR_SPEED	3.0
+
 # include <math.h>
 # include "mlx.h"
 # include "cub3d.h"
-
-// typedef struct s_images
-// {
-// 	void	*north;
-// 	void	*south;
-// 	void	*east;
-// 	void	*west;
-// }	t_images;
 
 typedef struct s_vector
 {
@@ -48,8 +40,6 @@ typedef struct s_player
 	t_vector		dir;
 	t_vector		plane;
 	double			degree;
-	double			speed;
-	double			angular_speed;
 }	t_player;
 
 typedef struct s_ray
@@ -80,7 +70,6 @@ typedef struct s_game
 	unsigned int	ceiling_color;
 	unsigned int	floor_color;
 	t_player		player;
-
 }	t_game;
 
 /* graphic_init.c */
@@ -88,5 +77,8 @@ t_game	init_game(t_data *data, t_img_path img_path);
 
 /* graphic_draw.c */
 void	draw(t_game *game);
+
+/* graphic_utils.c */
+void	my_mlx_pixel_put(t_game *game, int x, int y, int color);
 
 #endif

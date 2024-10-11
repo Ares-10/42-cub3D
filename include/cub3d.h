@@ -52,4 +52,4 @@ void	*cmk(void *mk);
 
 void	parsing(char *filename, t_data *data);
 
-#endif //CUB3D_H
+#endif
