@@ -6,12 +6,12 @@ SRCS =  main.c			\
 		graphic_init.c	\
 		graphic_draw.c	\
 
-SRCS += parsing/check_map_valid.c \
-		parsing/check_valid.c \
-		parsing/parse_map.c \
-		parsing/parse.c \
-		parsing/t_str_func.c \
-		parsing/utils.c \
+SRCS += parsing/check_map_valid.c	\
+		parsing/check_valid.c		\
+		parsing/parse_map.c			\
+		parsing/parse.c				\
+		parsing/t_str_func.c		\
+		parsing/utils.c				\
 
 SRCS +=	lib/get_next_line/get_next_line.c		\
 		lib/get_next_line/get_next_line_utils.c	\

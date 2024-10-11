@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "libft.h"
+#include "include/cub3d.h"
+#include "include/libft.h"
 
 void	err(char *msg)
 {
