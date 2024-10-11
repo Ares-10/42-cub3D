@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   graphic_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyungcho <hyungcho@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:22:09 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/09 18:46:22 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:04:52 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/cub3d.h"
-#include "include/graphic.h"
+#include "graphic.h"
 
 void	init_img(t_game *game, t_img_path img_path)
 {

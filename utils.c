@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   graphic.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/29 19:29:45 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/11 17:02:13 by sanghhan         ###   ########.fr       */
+/*   Created: 2024/10/06 16:47:28 by hyungcho          #+#    #+#             */
+/*   Updated: 2024/10/11 17:00:49 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "graphic.h"
+#include "cub3d.h"
+#include "libft.h"
 
-int	exit_game(void)
+void	err(char *msg)
 {
-	exit(0);
+	ft_putstr_fd("Error cub3d: ", 2);
+	ft_putstr_fd(msg, 2);
+	ft_putstr_fd("\n", 1);
+	exit(1);
 }
 
-int	key_press(int keycode, t_game *game)
+void	*cmk(void *mk)
 {
-	if (keycode == ESC)
-		exit_game();
-	(void) game;
-	return (0);
-}
-
-void	start_grapic(t_data *data, t_img_path *img_path)
-{
-	t_game	game;
-
-	game = init_game(data, *img_path);
-	draw(&game);
-	mlx_hook(game.win, KEY_PRESS, 0, key_press, &game);
-	mlx_hook(game.win, DESTROY_NOTIFY, 0, exit_game, 0);
-	mlx_loop(game.mlx);
+	if (!mk)
+		err("Failed to allocate memory.");
+	return (mk);
 }

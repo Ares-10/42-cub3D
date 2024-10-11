@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:10:16 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/11 15:02:39 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:03:35 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
-# include <libft.h>
+# include "libft.h"
 
 # define N 90
 # define S 270
@@ -46,7 +46,10 @@ typedef struct s_data
 /* grapic.c */
 void	start_grapic(t_data *data, t_img_path *img_path);
 
-/* error.c */
+/* utils.c */
 void	err(char *msg);
+void	*cmk(void *mk);
+
+void	parsing(char *filename, t_data *data);
 
 #endif //CUB3D_H
