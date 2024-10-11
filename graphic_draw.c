@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:59:38 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/11 17:02:05 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/11 18:05:54 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ void	init_ray(t_ray *ray, t_player player, t_vector raydir)
 	}
 }
 
-t_ray	get_ray(t_game *game, t_vector raydir)
+int	get_wall_high(t_game *game, t_vector raydir)
 {
-	t_ray	ray;
 	double	perpWallDist;
-	int hit;
-	int side;
+	int		side;
+	t_ray	ray;
+	int		hit;
 
 	hit = 0;
 	init_ray(&ray, game->player, raydir);
@@ -97,8 +97,7 @@ t_ray	get_ray(t_game *game, t_vector raydir)
 		perpWallDist = (ray.map_x - game->player.pos.x + (1 - ray.step_x) / 2) / raydir.x;
 	else
 		perpWallDist = (ray.map_y - game->player.pos.y + (1 - ray.step_y) / 2) / raydir.y;
-	(void) perpWallDist;
-	return (ray);
+	return (game->win_height / perpWallDist);
 }
 
 /* 1280 x 720 */
@@ -106,20 +105,29 @@ static void	draw_wall(t_game *game)
 {
 	int			i;
 	t_vector	raydir;
-	t_ray		ray[320];
+	int			wall_height;
 	double		camera_x;
+	int			j;
 
 	i = -1;
 	while (++i < 320)
 	{
 		camera_x = 2 * i / (double) 320 - 1;
 		raydir = get_raydir(game->player, camera_x);
-		ray[i] = get_ray(game, raydir);
+		wall_height = get_wall_high(game, raydir);
+		j = - wall_height / 2 + game->win_height / 2;
+		while (++j < wall_height / 2 + game->win_height / 2)
+		{
+			mlx_pixel_put(game->mlx, game->win, i * 4, j, 1000);
+			mlx_pixel_put(game->mlx, game->win, i * 4 + 1, j, 1000);
+			mlx_pixel_put(game->mlx, game->win, i * 4 + 2, j, 1000);
+			mlx_pixel_put(game->mlx, game->win, i * 4 + 3, j, 1000);
+		}
 	}
 }
 
 void	draw(t_game *game)
 {
 	draw_background(game);
-	// draw_wall(game);
+	draw_wall(game);
 }

@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 20:06:29 by sanghhan          #+#    #+#             */
-/*   Updated: 2024/10/10 22:56:28 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/11 18:04:18 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	set_player(int x, int y, char c, t_data *data)
 	data->player_pos[0] = x;
 	data->player_pos[1] = y;
 	if (c == 'E')
-		data->player_direction = 90;
-	else if (c == 'S')
-		data->player_direction = 180;
-	else if (c == 'W')
-		data->player_direction = 270;
-	else if (c == 'N')
 		data->player_direction = 0;
+	else if (c == 'N')
+		data->player_direction = 90;
+	else if (c == 'W')
+		data->player_direction = 180;
+	else if (c == 'S')
+		data->player_direction = 270;
 }
 
 void	find_player(char **map, t_data *data)
