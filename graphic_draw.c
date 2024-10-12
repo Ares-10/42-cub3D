@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:59:38 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/12 19:43:17 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/12 21:14:21 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ static void	draw_background(t_game *game)
 	}
 }
 
-static t_vector	get_raydir(t_player player, double camera_x)
-{
-	t_vector	raydir;
+// static t_vector	get_raydir(t_player player, double camera_x)
+// {
+// 	t_vector	raydir;
 
-	raydir.x = player.dir.x + player.plane.x * camera_x;
-	raydir.y = player.dir.y + player.plane.y * camera_x;
-	return (raydir);
-}
+// 	raydir.x = player.dir.x + player.plane.x * camera_x;
+// 	raydir.y = player.dir.y + player.plane.y * camera_x;
+// 	return (raydir);
+// }
 
 void	init_ray(t_ray *ray, t_player player, t_vector raydir)
 {
@@ -100,34 +100,117 @@ int	get_wall_high(t_game *game, t_vector raydir)
 	return (game->win_height / perpWallDist);
 }
 
-/* 1280 x 720 */
-static void	draw_wall(t_game *game)
+#define TEX_SIZE 128
+
+static void draw_wall(t_game *game)
 {
-	int			i;
-	t_vector	raydir;
-	int			wall_height;
-	double		camera_x;
-	int			j;
+    int i;
+    double raydir_x, raydir_y;
+    int map_x, map_y, step_x, step_y, side;
+    double side_dist_x, side_dist_y, delta_dist_x, delta_dist_y;
+    double perp_wall_dist, wall_x;
 
-	i = -1;
-	while (++i < 320)
-	{
-		camera_x = 2 * i / (double) 320 - 1;
-		raydir = get_raydir(game->player, camera_x);
-		wall_height = get_wall_high(game, raydir);
+    i = -1;
+    while (++i < game->win_width)
+    {
+        double camera_x = 2 * i / (double)game->win_width - 1;
+        raydir_x = game->player.dir.x + game->player.plane.x * camera_x;
+        raydir_y = game->player.dir.y + game->player.plane.y * camera_x;
 
+        map_x = (int)game->player.pos.x;
+        map_y = (int)game->player.pos.y;
 
-		j = - wall_height / 2 + game->win_height / 2;
-		while (++j < wall_height / 2 + game->win_height / 2)
-		{
-			int tex_y = (j - (game->win_height / 2 - wall_height / 2)) * 128 / wall_height;
+        delta_dist_x = (raydir_x == 0) ? 1e30 : fabs(1 / raydir_x);
+        delta_dist_y = (raydir_y == 0) ? 1e30 : fabs(1 / raydir_y);
 
-			my_mlx_pixel_put(game, i * 4, j, game->wall_color[0][tex_y][64]);
-			my_mlx_pixel_put(game, i * 4 + 1, j, game->wall_color[0][tex_y][64]);
-			my_mlx_pixel_put(game, i * 4 + 2, j, game->wall_color[0][tex_y][64]);
-			my_mlx_pixel_put(game, i * 4 + 3, j, game->wall_color[0][tex_y][64]);
-		}
-	}
+        if (raydir_x < 0)
+        {
+            step_x = -1;
+            side_dist_x = (game->player.pos.x - map_x) * delta_dist_x;
+        }
+        else
+        {
+            step_x = 1;
+            side_dist_x = (map_x + 1.0 - game->player.pos.x) * delta_dist_x;
+        }
+        if (raydir_y < 0)
+        {
+            step_y = -1;
+            side_dist_y = (game->player.pos.y - map_y) * delta_dist_y;
+        }
+        else
+        {
+            step_y = 1;
+            side_dist_y = (map_y + 1.0 - game->player.pos.y) * delta_dist_y;
+        }
+
+        int hit = 0;
+        while (hit == 0)
+        {
+            if (side_dist_x < side_dist_y)
+            {
+                side_dist_x += delta_dist_x;
+                map_x += step_x;
+                side = 0;
+            }
+            else
+            {
+                side_dist_y += delta_dist_y;
+                map_y += step_y;
+                side = 1;
+            }
+            if (game->map[map_y][map_x] == '1')
+                hit = 1;
+        }
+
+        if (side == 0)
+            perp_wall_dist = (map_x - game->player.pos.x + (1 - step_x) / 2) / raydir_x;
+        else
+            perp_wall_dist = (map_y - game->player.pos.y + (1 - step_y) / 2) / raydir_y;
+
+        int wall_height = (int)(game->win_height / perp_wall_dist);
+        int draw_start = -wall_height / 2 + game->win_height / 2;
+        if (draw_start < 0)
+            draw_start = 0;
+        int draw_end = wall_height / 2 + game->win_height / 2;
+        if (draw_end >= game->win_height)
+            draw_end = game->win_height - 1;
+
+        if (side == 0)
+            wall_x = game->player.pos.y + perp_wall_dist * raydir_y;
+        else
+            wall_x = game->player.pos.x + perp_wall_dist * raydir_x;
+        wall_x -= floor(wall_x);
+
+        int tex_x = (int)(wall_x * TEX_SIZE);
+        if (side == 0 && raydir_x > 0)
+            tex_x = TEX_SIZE - tex_x - 1;
+        if (side == 1 && raydir_y < 0)
+            tex_x = TEX_SIZE - tex_x - 1;
+
+        double step = 1.0 * TEX_SIZE / wall_height;
+        double tex_pos = (draw_start - game->win_height / 2 + wall_height / 2) * step;
+
+        int j = draw_start - 1;
+        while (++j <= draw_end)
+        {
+            int tex_y = (int)tex_pos & (TEX_SIZE - 1);
+            tex_pos += step;
+
+            int texture_index;
+            if (side == 0 && raydir_x > 0)
+                texture_index = 0; // East wall
+            else if (side == 0 && raydir_x < 0)
+                texture_index = 1; // West wall
+            else if (side == 1 && raydir_y > 0)
+                texture_index = 2; // South wall
+            else
+                texture_index = 3; // North wall
+
+            int color = game->wall_color[texture_index][tex_y][tex_x];
+            my_mlx_pixel_put(game, i, j, color);
+        }
+    }
 }
 
 void	draw(t_game *game)
