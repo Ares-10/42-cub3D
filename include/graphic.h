@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:21:25 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/12 19:46:55 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/12 21:59:22 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 
 # define P_SPEED			0.1
 # define P_ANGULAR_SPEED	3.0
+
+#define TEX_SIZE 128
 
 # include <math.h>
 # include "mlx.h"
@@ -44,15 +46,21 @@ typedef struct s_player
 
 typedef struct s_ray
 {
-	int		map_x;
-	int		map_y;
-	double	side_dist_x;
-	double	side_dist_y;
-	double	delta_dist_x;
-	double	delta_dist_y;
-	int		step_x;
-	int		step_y;
-}			t_ray;
+    double raydir_x;
+    double raydir_y;
+    int map_x;
+    int map_y;
+    double side_dist_x;
+    double side_dist_y;
+    double delta_dist_x;
+    double delta_dist_y;
+    int step_x;
+    int step_y;
+    int side;
+    double perp_wall_dist;
+    double wall_x;
+    int tex_x;
+} t_ray;
 
 typedef struct s_game
 {
