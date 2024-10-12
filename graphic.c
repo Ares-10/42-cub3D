@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 19:29:45 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/12 18:39:00 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/13 08:46:18 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,33 @@ int	key_press(int keycode, t_game *game)
 		exit_game();
 	if (keycode == KEY_W)
 	{
-		if(game->map[(int)game->player.pos.y][(int)(game->player.pos.x + game->player.dir.x * P_SPEED)] == '0')
+		if (game->map[(int)game->player.pos.y][(int)(game->player.pos.x + game->player.dir.x * P_SPEED)] == '0')
 			game->player.pos.x += game->player.dir.x * P_SPEED;
-		if(game->map[(int)(game->player.pos.y + game->player.dir.y * P_SPEED)][(int)game->player.pos.x] == '0')
+		if (game->map[(int)(game->player.pos.y + game->player.dir.y * P_SPEED)][(int)game->player.pos.x] == '0')
 			game->player.pos.y += game->player.dir.y * P_SPEED;
 	}
 	if (keycode == KEY_S)
 	{
-		if(game->map[(int)game->player.pos.y][(int)(game->player.pos.x - game->player.dir.x * P_SPEED)] == '0')
+		if (game->map[(int)game->player.pos.y][(int)(game->player.pos.x - game->player.dir.x * P_SPEED)] == '0')
 			game->player.pos.x -= game->player.dir.x * P_SPEED;
-		if(game->map[(int)(game->player.pos.y - game->player.dir.y * P_SPEED)][(int)game->player.pos.x] == '0')
+		if (game->map[(int)(game->player.pos.y - game->player.dir.y * P_SPEED)][(int)game->player.pos.x] == '0')
 			game->player.pos.y -= game->player.dir.y * P_SPEED;
 	}
 	if (keycode == KEY_A)
+	{
+		if (game->map[(int)game->player.pos.y][(int)(game->player.pos.x + game->player.dir.y * P_SPEED)] == '0')
+			game->player.pos.x += game->player.dir.y * P_SPEED;
+		if (game->map[(int)(game->player.pos.y - game->player.dir.x * P_SPEED)][(int)game->player.pos.x] == '0')
+			game->player.pos.y -= game->player.dir.x * P_SPEED;
+	}
+	if (keycode == KEY_D)
+	{
+		if (game->map[(int)game->player.pos.y][(int)(game->player.pos.x - game->player.dir.y * P_SPEED)] == '0')
+			game->player.pos.x -= game->player.dir.y * P_SPEED;
+		if (game->map[(int)(game->player.pos.y + game->player.dir.x * P_SPEED)][(int)game->player.pos.x] == '0')
+			game->player.pos.y += game->player.dir.x * P_SPEED;
+	}
+	if (keycode == KEY_LEFT)
 	{
 		game->player.degree -= P_ANGULAR_SPEED;
 		if (game->player.degree <= 0)
@@ -43,7 +57,7 @@ int	key_press(int keycode, t_game *game)
 		game->player.dir = degree_to_vector(game->player.degree);
 		game->player.plane = dir_to_plane(game->player.dir);
 	}
-	if (keycode == KEY_D)
+	if (keycode == KEY_RIGHT)
 	{
 		game->player.degree += P_ANGULAR_SPEED;
 		if (game->player.degree >= 360)
