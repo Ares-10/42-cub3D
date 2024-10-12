@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:10:16 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/11 17:03:35 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/12 18:41:38 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include <math.h>
 # include "libft.h"
 
-# define N 90
-# define S 270
+# define N 270
+# define S 90
 # define E 0
 # define W 180
 

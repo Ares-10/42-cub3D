@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 19:29:45 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/12 18:33:57 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/12 18:39:00 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ int	key_press(int keycode, t_game *game)
 		exit_game();
 	if (keycode == KEY_W)
 	{
-		// if(game->map[(int)game->player.pos.y][(int)(game->player.pos.x + game->player.dir.x * P_SPEED)] == '0')
+		if(game->map[(int)game->player.pos.y][(int)(game->player.pos.x + game->player.dir.x * P_SPEED)] == '0')
 			game->player.pos.x += game->player.dir.x * P_SPEED;
-		// if(game->map[(int)game->player.pos.x][(int)(game->player.pos.y + game->player.dir.y * P_SPEED)] == '0')
+		if(game->map[(int)(game->player.pos.y + game->player.dir.y * P_SPEED)][(int)game->player.pos.x] == '0')
 			game->player.pos.y += game->player.dir.y * P_SPEED;
 	}
 	if (keycode == KEY_S)
 	{
-		// if(game->map[(int)game->player.pos.y][(int)(game->player.pos.x - game->player.dir.x * P_SPEED)] == '0')
+		if(game->map[(int)game->player.pos.y][(int)(game->player.pos.x - game->player.dir.x * P_SPEED)] == '0')
 			game->player.pos.x -= game->player.dir.x * P_SPEED;
-		// if(game->map[(int)game->player.pos.x][(int)(game->player.pos.y - game->player.dir.y * P_SPEED)] == '0')
+		if(game->map[(int)(game->player.pos.y - game->player.dir.y * P_SPEED)][(int)game->player.pos.x] == '0')
 			game->player.pos.y -= game->player.dir.y * P_SPEED;
 	}
 	if (keycode == KEY_A)
