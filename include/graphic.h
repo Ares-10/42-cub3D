@@ -6,7 +6,7 @@
 /*   By: hyungcho <hyungcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:21:25 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/12 02:10:43 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/12 18:25:00 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,15 @@ typedef struct s_game
 }	t_game;
 
 /* graphic_init.c */
-t_game	init_game(t_data *data, t_img_path img_path);
+t_game		init_game(t_data *data, t_img_path img_path);
+t_vector	degree_to_vector(double degree);
+t_vector	dir_to_plane(t_vector dir);
 
 /* graphic_draw.c */
-void	draw(t_game *game);
+void		draw(t_game *game);
 
 /* graphic_utils.c */
-void	my_mlx_pixel_put(t_game *game, int x, int y, int color);
+void		my_mlx_pixel_put(t_game *game, int x, int y, int color);
+
 
 #endif
