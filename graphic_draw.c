@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphic_draw.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:59:38 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/12 01:46:31 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/12 19:43:17 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,10 +120,12 @@ static void	draw_wall(t_game *game)
 		j = - wall_height / 2 + game->win_height / 2;
 		while (++j < wall_height / 2 + game->win_height / 2)
 		{
-			my_mlx_pixel_put(game, i * 4, j, 1000);
-			my_mlx_pixel_put(game, i * 4 + 1, j, 1000);
-			my_mlx_pixel_put(game, i * 4 + 2, j, 1000);
-			my_mlx_pixel_put(game, i * 4 + 3, j, 1000);
+			int tex_y = (j - (game->win_height / 2 - wall_height / 2)) * 128 / wall_height;
+
+			my_mlx_pixel_put(game, i * 4, j, game->wall_color[0][tex_y][64]);
+			my_mlx_pixel_put(game, i * 4 + 1, j, game->wall_color[0][tex_y][64]);
+			my_mlx_pixel_put(game, i * 4 + 2, j, game->wall_color[0][tex_y][64]);
+			my_mlx_pixel_put(game, i * 4 + 3, j, game->wall_color[0][tex_y][64]);
 		}
 	}
 }

@@ -6,6 +6,7 @@ SRCS =  main.c			\
 		graphic_init.c	\
 		graphic_draw.c	\
 		graphic_utils.c	\
+		draw_texture.c
 
 SRCS += parsing/check_map_valid.c	\
 		parsing/check_valid.c		\
@@ -34,7 +35,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	@$(MAKE) -C ./lib/libft bonus
 	@$(MAKE) -C ./lib/minilibx_opengl_20191021 all
-	@cc $(LDFLAGS) $^ $(LIBS) -o $(NAME)
+	@cc $(LDFLAGS) $^ $(LIBS) -o $(NAME) -fsanitize=address
 	@echo "Cub3d"
 
 %.o: %.c

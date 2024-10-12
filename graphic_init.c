@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphic_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:22:09 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/12 18:24:51 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/12 20:00:59 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@ void	init_img(t_game *game, t_img_path img_path)
 			img_path.west, &img_width, &img_height);
 	game->images[3] = mlx_xpm_file_to_image(game->mlx,
 			img_path.south, &img_width, &img_height);
-	if (!(game->images[0] || game->images[1] || game->images[2] \
-		|| game->images[3]))
+	if (!game->images[0] || !game->images[1] || !game->images[2] \
+		|| !game->images[3])
 		err("xpm file to image failed");
-	// game->wall_color // init
 }
 
 t_vector	degree_to_vector(double degree)
@@ -77,5 +76,6 @@ t_game	init_game(t_data *data, t_img_path img_path)
 	game.floor_color = data->floor_color;
 	init_player(&game, data);
 	init_img(&game, img_path);
+	make_wall_color(&game);
 	return (game);
 }

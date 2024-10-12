@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphic.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyungcho <hyungcho@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:21:25 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/12 18:53:46 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/12 19:46:55 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_ray
 typedef struct s_game
 {
 	void			*images[4];
-	int				wall_color[4][128][128];
+	unsigned int	wall_color[4][128][128];
 	void			*mlx;
 	void			*win;
 	int				win_width;
@@ -84,5 +84,7 @@ void		draw(t_game *game);
 /* graphic_utils.c */
 void		my_mlx_pixel_put(t_game *game, int x, int y, int color);
 
+//draw_texture
+void		make_wall_color(t_game *game);
 
 #endif
