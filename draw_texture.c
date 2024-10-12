@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:50:39 by sanghhan          #+#    #+#             */
-/*   Updated: 2024/10/12 20:01:51 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/12 20:38:56 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	get_texture_data(t_game *game, void *img, int idx)
 		while (++x < 128)
 		{
 			game->wall_color[idx][y][x] = \
-				*(unsigned int *)(addr + ((y / 4) * line_length + (x / 4) * (bpp / 8)));
+				*(unsigned int *)(addr + ((y / 2) * line_length + (x / 2) * (bpp / 8)));
 		}
 	}
 }
