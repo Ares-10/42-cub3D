@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 04:56:55 by sanghhan          #+#    #+#             */
-/*   Updated: 2024/10/10 21:53:19 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/12 17:21:47 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,5 @@ void	get_map(int fd, t_data *data)
 	map_str = free_map_t_str(map_str);
 	check_map_valid(map, hight, width, data);
 	data->map = map;
+	data->map[(int)data->player_pos[1]][(int)data->player_pos[0]] = '0';
 }

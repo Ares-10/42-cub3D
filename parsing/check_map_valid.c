@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_valid.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 20:06:29 by sanghhan          #+#    #+#             */
-/*   Updated: 2024/10/11 18:04:18 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/12 17:19:55 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	set_player(int x, int y, char c, t_data *data)
 		data->player_direction = 180;
 	else if (c == 'S')
 		data->player_direction = 270;
+	return ;
 }
 
 void	find_player(char **map, t_data *data)
