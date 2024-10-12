@@ -1,7 +1,7 @@
-NO ./images/Baren.xpm
-SO ./images/Black_hole.xpm
-WE ./images/Ice.xpm
-EA ./images/Lava.xpm
+NO ./images/A.xpm
+SO ./images/B.xpm
+WE ./images/C.xpm
+EA ./images/D.xpm
 
 F 100,100,100
 C 10,3,100
