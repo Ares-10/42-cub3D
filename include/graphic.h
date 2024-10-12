@@ -6,7 +6,7 @@
 /*   By: hyungcho <hyungcho@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:21:25 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/12 18:25:00 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/12 18:53:46 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_ray
 typedef struct s_game
 {
 	void			*images[4];
+	int				wall_color[4][128][128];
 	void			*mlx;
 	void			*win;
 	int				win_width;

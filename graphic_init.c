@@ -28,6 +28,7 @@ void	init_img(t_game *game, t_img_path img_path)
 	if (!(game->images[0] || game->images[1] || game->images[2] \
 		|| game->images[3]))
 		err("xpm file to image failed");
+	// game->wall_color // init
 }
 
 t_vector	degree_to_vector(double degree)
