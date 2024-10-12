@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:21:25 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/12 21:59:22 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/13 08:42:16 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define KEY_A			0
 # define KEY_S			1
 # define KEY_D			2
+# define KEY_LEFT		123
+# define KEY_RIGHT		124
 
 # define P_SPEED			0.1
 # define P_ANGULAR_SPEED	3.0
@@ -60,7 +62,15 @@ typedef struct s_ray
     double perp_wall_dist;
     double wall_x;
     int tex_x;
-} t_ray;
+}	t_ray;
+
+typedef struct s_img
+{
+	char	*addr;
+	int		bpp;
+	int		line_length;
+	int		endian;
+}	t_img;
 
 typedef struct s_game
 {
