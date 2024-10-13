@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "graphic.h"
+#include "include/graphic.h"
 
 void	rotate_left(t_game *game)
 {

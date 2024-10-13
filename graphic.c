@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "graphic.h"
+#include "include/graphic.h"
 
 int	exit_game(void)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "graphic.h"
+#include "include/graphic.h"
 
 static void	set_initial_ray_parameters(t_game *game, t_ray *ray)
 {

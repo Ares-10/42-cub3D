@@ -6,11 +6,11 @@
 /*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:59:38 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/13 16:48:11 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/13 18:24:54 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "graphic.h"
+#include "include/graphic.h"
 
 void	draw_background(t_game *game)
 {

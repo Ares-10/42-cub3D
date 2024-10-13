@@ -6,11 +6,11 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:22:09 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/13 14:07:49 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/13 18:24:47 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "graphic.h"
+#include "include/graphic.h"
 
 void	init_img(t_game *game, t_img_path img_path)
 {

@@ -6,11 +6,11 @@
 /*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 14:05:15 by sanghhan          #+#    #+#             */
-/*   Updated: 2024/10/13 16:31:49 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/13 18:25:09 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "graphic.h"
+#include "include/graphic.h"
 
 void	calculate_ray_direction(t_game *game, int i, t_ray *ray)
 {

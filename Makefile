@@ -10,7 +10,7 @@ SRCS =  main.c			\
 		calculate_texture.c\
 		move.c			\
 		rotate.c		\
-		draw_texture.c
+		draw_texture.c	\
 
 SRCS += parsing/check_map_valid.c	\
 		parsing/check_valid.c		\
