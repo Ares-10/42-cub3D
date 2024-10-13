@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 18:10:16 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/12 18:41:38 by hyungcho         ###   ########.fr       */
+/*   Updated: 2024/10/13 15:50:28 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_data
 }	t_data;
 
 /* grapic.c */
+int		exit_game(void);
 void	start_grapic(t_data *data, t_img_path *img_path);
 
 /* utils.c */

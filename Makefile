@@ -6,6 +6,10 @@ SRCS =  main.c			\
 		graphic_init.c	\
 		graphic_draw.c	\
 		graphic_utils.c	\
+		init_ray.c		\
+		calculate_texture.c\
+		move.c			\
+		rotate.c		\
 		draw_texture.c
 
 SRCS += parsing/check_map_valid.c	\

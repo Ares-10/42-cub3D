@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphic.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:21:25 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/13 14:43:36 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/13 16:28:04 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@
 # include <math.h>
 # include "mlx.h"
 # include "cub3d.h"
+
+typedef struct s_wall
+{
+	int		wall_height;
+	int		draw_start;
+	int		draw_end;
+	double	step;
+	double	tex_pos;
+	int		texture_index;
+}	t_wall;
 
 typedef struct s_vector
 {
@@ -91,18 +101,44 @@ typedef struct s_game
 	t_player		player;
 }	t_game;
 
+//graphic.c
+void		draw(t_game *game);
+int			key_press(int keycode, t_game *game);
+
 /* graphic_init.c */
 t_game		init_game(t_data *data, t_img_path img_path);
 t_vector	degree_to_vector(double degree);
 t_vector	dir_to_plane(t_vector dir);
+void		init_player(t_game *game, t_data *data);
+t_game		init_game(t_data *data, t_img_path img_path);
+
+//init_ray
+void		initialize_ray(t_game *game, t_ray *ray);
 
 /* graphic_draw.c */
-void		draw(t_game *game);
+void		draw_background(t_game *game);
+void		draw_wall(t_game *game);
 
 /* graphic_utils.c */
 void		my_mlx_pixel_put(t_game *game, int x, int y, int color);
 
 //draw_texture
 void		make_wall_color(t_game *game);
+
+// calculate_texture
+void		calculate_ray_direction(t_game *game, int i, t_ray *ray);
+void		calculate_texture(t_ray *ray, t_game *game);
+int			determine_texture_index(t_ray *ray);
+void		calculate_wall_dimensions(t_game *game, t_ray *ray, int *wall_height, int *draw_start, int *draw_end);
+
+//move
+void		move_forward(t_game *game);
+void		move_backward(t_game *game);
+void		move_left(t_game *game);
+void		move_right(t_game *game);
+
+//rotate
+void		rotate_left(t_game *game);
+void		rotate_right(t_game *game);
 
 #endif

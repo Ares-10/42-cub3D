@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphic.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 19:29:45 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/13 14:46:45 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/13 15:54:52 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	draw(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->win, game->img, 0, 0);
 }
 
-static void	handle_key_press(int keycode, t_game *game)
+int	key_press(int keycode, t_game *game)
 {
 	if (keycode == ESC)
 		exit_game();
@@ -40,11 +40,6 @@ static void	handle_key_press(int keycode, t_game *game)
 		rotate_left(game);
 	else if (keycode == KEY_RIGHT)
 		rotate_right(game);
-}
-
-int	key_press(int keycode, t_game *game)
-{
-	handle_key_press(keycode, game);
 	draw(game);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calculate_texture.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 14:05:15 by sanghhan          #+#    #+#             */
-/*   Updated: 2024/10/13 14:42:22 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/13 16:26:58 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
