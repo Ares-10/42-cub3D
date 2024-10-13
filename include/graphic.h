@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:21:25 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/13 16:28:04 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/13 16:47:12 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void		make_wall_color(t_game *game);
 void		calculate_ray_direction(t_game *game, int i, t_ray *ray);
 void		calculate_texture(t_ray *ray, t_game *game);
 int			determine_texture_index(t_ray *ray);
-void		calculate_wall_dimensions(t_game *game, t_ray *ray, int *wall_height, int *draw_start, int *draw_end);
+void		calculate_wall_dimensions(t_game *game, t_ray *ray, t_wall *wall);
 
 //move
 void		move_forward(t_game *game);

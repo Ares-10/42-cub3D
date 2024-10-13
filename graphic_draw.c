@@ -6,13 +6,13 @@
 /*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:59:38 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/13 16:28:16 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/13 16:48:11 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "graphic.h"
 
- void	draw_background(t_game *game)
+void	draw_background(t_game *game)
 {
 	int	y;
 	int	x;
@@ -52,41 +52,36 @@ static void	perform_dda(t_game *game, t_ray *ray)
 	}
 }
 
-static void	draw_column(t_game *game, int i, int draw_start, int draw_end, t_ray *ray, int texture_index, double step,
-						double tex_pos)
+static void	draw_column(t_game *game, int i, t_ray *ray, t_wall *wall)
 {
 	int	j;
 	int	tex_y;
 	int	color;
 
-	j = draw_start - 1;
-	while (++j <= draw_end)
+	j = wall->draw_start - 1;
+	while (++j <= wall->draw_end)
 	{
-		tex_y = (int) tex_pos & (TEX_SIZE - 1);
-		tex_pos += step;
-		color = game->wall_color[texture_index][tex_y][ray->tex_x];
+		tex_y = (int) wall->tex_pos & (TEX_SIZE - 1);
+		wall->tex_pos += wall->step;
+		color = game->wall_color[wall->texture_index][tex_y][ray->tex_x];
 		my_mlx_pixel_put(game, i, j, color);
 	}
 }
 
 static void	draw_wall_column(t_game *game, int i, t_ray *ray)
 {
-	int		wall_height;
-	int		draw_start;
-	int		draw_end;
-	double	step;
-	double	tex_pos;
-	int		texture_index;
+	t_wall	wall;
 
 	calculate_ray_direction(game, i, ray);
 	initialize_ray(game, ray);
 	perform_dda(game, ray);
-	calculate_wall_dimensions(game, ray, &wall_height, &draw_start, &draw_end);
+	calculate_wall_dimensions(game, ray, &wall);
 	calculate_texture(ray, game);
-	texture_index = determine_texture_index(ray);
-	step = 1.0 * TEX_SIZE / wall_height;
-	tex_pos = (draw_start - game->win_height / 2 + wall_height / 2) * step;
-	draw_column(game, i, draw_start, draw_end, ray, texture_index, step, tex_pos);
+	wall.texture_index = determine_texture_index(ray);
+	wall.step = 1.0 * TEX_SIZE / wall.wall_height;
+	wall.tex_pos = \
+	(wall.draw_start - game->win_height / 2 + wall.wall_height / 2) * wall.step;
+	draw_column(game, i, ray, &wall);
 }
 
 void	draw_wall(t_game *game)

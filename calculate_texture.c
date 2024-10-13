@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 14:05:15 by sanghhan          #+#    #+#             */
-/*   Updated: 2024/10/13 16:26:58 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/13 16:31:49 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	determine_texture_index(t_ray *ray)
 	}
 }
 
-void	calculate_wall_dimensions(t_game *game, t_ray *ray, int *wall_height, int *draw_start, int *draw_end)
+void	calculate_wall_dimensions(t_game *game, t_ray *ray, t_wall *wall)
 {
 	if (ray->side == 0)
 		ray->perp_wall_dist = \
@@ -62,8 +62,8 @@ void	calculate_wall_dimensions(t_game *game, t_ray *ray, int *wall_height, int *
 		ray->perp_wall_dist = \
 		(ray->map_y - game->player.pos.y + (1 - ray->step_y) / 2) \
 		/ ray->raydir_y;
-	*wall_height = (int)(game->win_height / ray->perp_wall_dist);
-	*draw_start = fmax(0, -*wall_height / 2 + game->win_height / 2);
-	*draw_end = \
-	fmin(game->win_height - 1, *wall_height / 2 + game->win_height / 2);
+	wall->wall_height = (int)(game->win_height / ray->perp_wall_dist);
+	wall->draw_start = fmax(0, -wall->wall_height / 2 + game->win_height / 2);
+	wall->draw_end = \
+	fmin(game->win_height - 1, wall->wall_height / 2 + game->win_height / 2);
 }
