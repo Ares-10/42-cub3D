@@ -6,12 +6,12 @@
 /*   By: sanghhan <sanghhan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:22:35 by sanghhan          #+#    #+#             */
-/*   Updated: 2024/10/11 16:47:32 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/13 14:44:30 by sanghhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_MAP
-# define PARSE_MAP
+#ifndef PARSE_H
+# define PARSE_H
 
 # include "cub3d.h"
 # include "get_next_line.h"
