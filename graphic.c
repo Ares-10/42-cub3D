@@ -6,7 +6,7 @@
 /*   By: sanghhan <sanghhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 19:29:45 by hyungcho          #+#    #+#             */
-/*   Updated: 2024/10/13 15:54:52 by sanghhan         ###   ########.fr       */
+/*   Updated: 2024/10/13 18:44:16 by hyungcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	key_press(int keycode, t_game *game)
 	else if (keycode == KEY_RIGHT)
 		rotate_right(game);
 	draw(game);
+	printf("x: %lf, y: %lf \n ", game->player.pos.x,  game->player.pos.y);
 	return (0);
 }
 
